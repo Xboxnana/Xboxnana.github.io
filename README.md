@@ -11,3 +11,8 @@ Okay, lange Rede, kurzer Sinn: xboxnana ist ein YouTube-Kanal, der etwa im Jahr 
 link: https://www.youtube.com/@NanaJr13
 
 website made by my friend: https://github.com/hellojaying
+
+
+remote_theme: pages-themes/midnight@v0.2.0
+plugins:
+- jekyll-remote-theme
