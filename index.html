@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shared Notes (Local Device)</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            margin: 40px; 
+        }
+
+        #outputBox {
+            width: 90%;
+            height: 300px;
+            border: 1px solid #444;
+            padding: 10px;
+            overflow-y: auto; 
+            white-space: pre-wrap;
+        }
+
+        #inputBar {
+            width: 90%;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        #saveBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Shared Notes (per-device save)</h2>
+
+<div id="outputBox"></div>
+
+<input id="inputBar" type="text" placeholder="Type here..." />
+<button id="saveBtn">Save Line</button>
+
+<script>
+    
+    const outputBox = document.getElementById('outputBox');
+    const saved = localStorage.getItem('notes');
+    if (saved) {
+        outputBox.textContent = saved;
+    }
+
+    
+    document.getElementById('saveBtn').onclick = () => {
+        const input = document.getElementById('inputBar');
+        const newText = input.value.trim();
+        if (newText === "") return;
+
+        outputBox.textContent += newText + "\n";
+        localStorage.setItem('notes', outputBox.textContent);
+
+        input.value = "";
+    };
+</script>
+
+</body>
+</html>
